@@ -58,12 +58,13 @@ var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 var conversation = new ConversationV1({
   username: 'USERNAME', // replace with username from service key
   password: 'PASSWORD', // replace with password from service key
-  path: { workspace_id: 'WORKSPACE_ID' }, // replace with workspace ID
   version_date: '2017-05-26'
 });
 
 // Start conversation with empty message.
-conversation.message({}, processResponse);
+conversation.message({
+  workspace_id: 'WORKSPACE_ID' // replace with workspace ID
+}, processResponse);
 
 // Process the conversation response.
 function processResponse(err, response) {
@@ -159,12 +160,13 @@ var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 var conversation = new ConversationV1({
   username: 'USERNAME', // replace with username from service key
   password: 'PASSWORD', // replace with password from service key
-  path: { workspace_id: 'WORKSPACE_ID' }, // replace with workspace ID
   version_date: '2016-07-11'
 });
 
 // Start conversation with empty message.
-conversation.message({}, processResponse);
+conversation.message({
+  workspace_id: 'WORKSPACE_ID' // replace with workspace ID
+}, processResponse);
 
 // Process the conversation response.
 function processResponse(err, response) {
@@ -186,6 +188,7 @@ function processResponse(err, response) {
   // Prompt for the next round of input.
   var newMessageFromUser = prompt('>> ');
   conversation.message({
+    workspace_id: 'WORKSPACE_ID' // replace with workspace ID
     input: { text: newMessageFromUser }
     }, processResponse)
 }
@@ -281,12 +284,13 @@ var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 var conversation = new ConversationV1({
   username: 'USERNAME', // replace with username from service key
   password: 'PASSWORD', // replace with password from service key
-  path: { workspace_id: 'WORKSPACE_ID' }, // replace with workspace ID
   version_date: '2017-05-26'
 });
 
 // Start conversation with empty message.
-conversation.message({}, processResponse);
+conversation.message({
+  workspace_id: 'WORKSPACE_ID' // replace with workspace ID
+}, processResponse);
 
 // Process the conversation response.
 function processResponse(err, response) {
@@ -309,6 +313,7 @@ function processResponse(err, response) {
     var newMessageFromUser = prompt('>> ');
     // Send back the context to maintain state.
     conversation.message({
+      workspace_id: 'WORKSPACE_ID' // replace with workspace ID
       input: { text: newMessageFromUser },
       context : response.context,
     }, processResponse)
@@ -368,6 +373,7 @@ The only change from the previous example is that with each round of the convers
 
 ```javascript
     conversation.message({
+      workspace_id: 'WORKSPACE_ID' // replace with workspace ID
       input: { text: newMessageFromUser },
       context : response.context,
     }, processResponse)
@@ -429,7 +435,6 @@ var ConversationV1 = require('watson-developer-cloud/conversation/v1');
 var conversation = new ConversationV1({
   username: 'USERNAME', // replace with username from service key
   password: 'PASSWORD', // replace with password from service key
-  path: { workspace_id: 'WORKSPACE_ID' }, // replace with workspace ID
   version_date: '2017-05-26'
 });
 
@@ -464,6 +469,7 @@ function processResponse(err, response) {
   if (!endConversation) {
     var newMessageFromUser = prompt('>> ');
     conversation.message({
+      workspace_id: 'WORKSPACE_ID' // replace with workspace ID
       input: { text: newMessageFromUser },
       // Send back the context to maintain state.
       context : response.context,
